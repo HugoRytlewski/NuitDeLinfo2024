@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contest-header {
+    text-align: center;
+    padding: 20px 0;
+    animation: float 6s ease-in-out infinite;
+}
+
+.contest-header h1 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.prize-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px 0;
+    backdrop-filter: blur(5px);
+    font-size: 0.95rem;
+}
+
+.prize-section h2 {
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+}
+
+.prize-section ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.prize-section li {
+    margin: 5px 0;
+}
+
+.phone-input-section {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    color: #333;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.phone-input-section h2 {
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.phone-display {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.8rem 0;
+    font-family: monospace;
+    min-height: 2.5rem;
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 15px auto;
+}
+
+.numpad button {
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid #26d0ce;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructions {
+    text-align: center;
+    color: #666;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+#validateBtn {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 8px 15px;
+    background: #1a2980;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#validateBtn:disabled {
+    background: #ccc;
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 15px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 12px;
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+
+.bubbles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: bubbleRise var(--duration) infinite ease-in;
+    animation-delay: var(--delay);
+    opacity: var(--opacity);
+    transform-origin: center;
+}
+
+@keyframes bubbleRise {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(1);
+        opacity: var(--opacity);
+    }
+    50% {
+        transform: translateY(50vh) translateX(var(--drift)) scale(0.8);
+        opacity: var(--opacity);
+    }
+    100% {
+        transform: translateY(-20px) translateX(calc(var(--drift) * 2)) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0);
+        opacity: 0;
+    }
+}
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .contest-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .contest-header p {
+                font-size: 0.9rem;
+            }
+
+            .phone-input-section {
+                padding: 10px;
+                max-width: 260px;
+            }
+
+            .numpad button {
+                padding: 6px;
+                font-size: 0.9rem;
+            }
+
+            .phone-display {
+                font-size: 1.2rem;
+            }
+
+            .prize-section {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+
+            .prize-section h2 {
+                font-size: 1.1rem;
+            }
+        
+}
