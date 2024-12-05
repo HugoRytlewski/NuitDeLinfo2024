@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Concours des Abysses</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+    
+    <div class="container">
+        <header role="banner" class="contest-header">
+            <i class="fas fa-fish fa-2x" aria-hidden="true"></i>
+            <h1 id="mainTitle">Grand Concours des Abysses</h1>
+            <p>🌊 Plongez dans l'aventure et tentez de gagner ! 🌊</p>
+        </header>
+
+        <main role="main">
+            <section class="prize-section" aria-labelledby="prizeTitle">
+                <h2 id="prizeTitle"><i class="fas fa-trophy" aria-hidden="true"></i> À Gagner</h2>
+                <ul>
+                    <li>1er prix : Une plongée avec les baleines</li>
+                    <li>2e prix : Un aquarium connecté dernier cri</li>
+                    <li>3e prix : Un livre collector sur les créatures abyssales</li>
+                </ul>
+            </section>
+
+            <section class="phone-input-section" aria-labelledby="participateTitle">
+                <h2 id="participateTitle">Tentez votre chance !</h2>
+                <p class="instructions">Pour participer, entrez votre numéro...</p>
+                <p class="instructions" id="currentTask" aria-live="polite">
+                    Attrapez les chiffres bleus comme des poissons !
+                </p>
+                
+                <div class="phone-display" id="phoneDisplay" aria-live="polite" role="status"></div>
+                <div class="numpad" id="numpad" role="group" aria-label="Pavé numérique"></div>
+                
+                <button id="validateBtn" disabled aria-label="Valider la participation">
+                    Participer
+                </button>
+            </section>
+
+            <section class="success-message" id="successMessage" aria-labelledby="successTitle" hidden>
+                <h3 id="successTitle">🎉 Félicitations ! 🎉</h3>
+                <p>Votre participation a été enregistrée.</p>
+                <p>Un dauphin-messager vous contactera si vous êtes l'heureux gagnant !</p>
+            </section>
+        </main>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
