@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>Formulaire de Contact avec Captcha de Jeu</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <form id="contactForm">
+        <input
+          type="text"
+          id="name"
+          placeholder="Nom"
+          aria-label="Nom"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          aria-label="Email"
+          required
+        />
+        <textarea
+          id="message"
+          placeholder="Votre message"
+          aria-label="Message"
+          required
+        ></textarea>
+        <div class="captcha-section">
+            <button type="button" id="gamingCaptcha" class="verification-btn">
+                <div class="btn-content">
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 5L20 12L13 19M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="btn-text">Vérification humaine</span>
+                </div>
+            </button>
+            <button type="submit" id="submitBtn" disabled>
+                <span class="submit-text">Envoyer</span>
+                <svg class="send-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="captchaModal" class="modal">
+      <div class="modal-content">
+        <h2>Choisissez votre défi</h2>
+        <div id="gameSelection">
+          <button class="game-btn" data-game="memory">🧠 Jeu de mémoire</button>
+          <button class="game-btn" data-game="platformer">🏃‍♂️ Plateforme</button>
+          <button class="game-btn" data-game="shooter">🎯 Tir</button>
+        </div>
+        <div id="gameContainer"></div>
+        <button id="cancelCaptcha">Annuler</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
