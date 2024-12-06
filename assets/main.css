@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    background-color: rgb(241, 241, 241);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    
+}
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style-type: none;
+  }
+
+  li {
+    list-style-type: none;
+  }

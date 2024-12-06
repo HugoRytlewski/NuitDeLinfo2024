@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/main.css" rel="stylesheet" />
+    <script src="assets/js/main.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<div id="menu" class="h-[99vh] w-screen text-2xl gap-4 z-50 bg-white hidden fixed flex items-center justify-center  flex-col  ">
+    <li>
+        <a href="#" class="hover:underline">Accueil</a>
+        </li>
+        <li>
+        <a href="#" class="hover:underline">Infos</a>
+        </li>
+        <li>
+        <a href="#" class="hover:underline">Dons</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline">Concours</a>
+        </li>
+</div>
+
+
+    <ul class="z-50 fixed w-screen  bg-opacity-40 	 flex justify-center gap-10 h-20 flex items-center text-xl border-b-xl justify-between p-10 font-bold   ">
+        <div>
+            <p class="mix-blend-normal">Logo</p>
+        </div>
+        <div class="flex gap-10 hidden w-fit md:flex bg-white rounded-xl pl-10 pr-10 h-10 flex items-center justify-center bg-opacity-60 backdrop-blur-md 	">
+            <li>
+                <a href="#" class="hover:underline">Accueil</a>
+                </li>
+                <li>
+                <a href="#" class="hover:underline">Infos</a>
+                </li>
+                <li>
+                <a href="#" class="hover:underline">Dons</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Concours</a>
+                </li>
+        </div>
+        <div>
+            <li>
+                <div class="bg-[#3462C5] hidden md:flex text-white  h-10 p-3 w-fit p-2  rounded-md text-black items-center flex justify-center">Contact</div>
+            </li>
+            <li class="h-12 bg-[#3462C5] w-12 flex items-center justify-center rounded-md md:hidden ">
+                <img id="buttonOpen" src="assets/img/open.svg" class="h-10"  alt="">
+                <img id="buttonClose" src="assets/img/close.svg" class="h-10 hidden"  alt="">
+
+            </li>
+        </div>
+    </ul>
+    <img src="assets/img/blob.svg" alt="" class="absolute left-0 h-52 md:h-96 z-20">
+
+<body>
+
+    <div class="rounded-xl h-fit w-screen flex flex-col relative gap-20  items-center z-40">
+
+        <div class="h-[100vh] w-[65vw] flex-col rounded-xl items-center justify-center flex  ">
+            <h1 class="text-[#3462C5] md:text-[10rem] font-bold  text-3xl h-28 ">Titre de caca</h1>
+            <div class="flex gap-6"> 
+                <div class="w-fit h-10 hover:outline-4 cursor-pointer bg-[#3462C5] flex items-center justify-center text-white p-6 rounded-xl ">
+                    En savoir plus
+                </div>
+                <div class="w-fit h-10 hover:outline-4 cursor-pointer bg-white flex items-center justify-center p-6 rounded-xl ">
+                    Nous
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="p-6 flex items-center justify-center">
+            <p class="text-2xl font-bold">Infos</p>
+        </div>
+        <div class="flex-col md:flex-row flex  items-center w-screen justify-center gap-10 z-20 ">
+            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+                <p class="scale-[300%]">🩸</p>
+                <p class="p-6">Le sang parcourt 12 000 km de vaisseaux chaque jour dans votre corps, soit 4 fois la distance des côtes californiennes !</p>
+            </div>
+            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+                <p class="scale-[300%]">❤️</p>
+                <p class="p-6">Votre cœur bat 100 000 fois par jour, soit 35 millions de fois par an, l'équivalent du nombre de poissons migrateurs !</p>
+            </div>
+            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+                <p class="scale-[300%]">🍃</p>
+                <p class="p-6">Chaque minute, vos poumons filtrent 5 litres d'air, comme les filtres naturels des herbiers sous-marins.</p>
+            </div>
+            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+                <p class="scale-[300%]">🐟</p>
+                <p class="p-6">Vos reins purifient 180 litres de sang par jour, un vrai système de filtration inspiré des mangroves.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="h-screen w-screen overflow-hidden md:overflow-visible relative">
+        <img src="assets/img/blob2.svg" alt="" class="absolute right-0 hidden md:flex h-96 z-20 md:-translate-y-52 md:translate-x-28 md:translate-x-0 z-0">
+    </div>
+
+</body>
+</html>
