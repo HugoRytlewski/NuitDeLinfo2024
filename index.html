@@ -1,159 +1,149 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <title>My Website</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="assets/main.css" rel="stylesheet" />
-    <script src="assets/js/main.js"></script>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-
-    <link rel="stylesheet" href="./assets/rgaa.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./assets/rgaa.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<div id="menu" class="h-[99vh] w-screen text-2xl gap-4 z-50 bg-white hidden fixed flex items-center justify-center  flex-col  ">
-    <li>
-        <a href="#" class="hover:underline">Accueil</a>
-        </li>
-        <li>
-        <a href="#infos" class="hover:underline">Infos</a>
-        </li>
-        <li>
-        <a href="#" class="hover:underline">Dons</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline">Concours</a>
-        </li>
-
-        
-</div>
-
-
-    <ul class="z-50 fixed w-screen  bg-opacity-40 	 flex justify-center gap-10 h-20 flex items-center text-xl border-b-xl justify-between p-10 font-bold   ">
-        <div>
-            <a href="#" class="mix-blend-normal"><img src="assets/img/logo.svg" class="h-12" alt="logo BlueBody"></a>
-        </div>
-        <div class="flex gap-10 hidden w-fit md:flex bg-white rounded-xl pl-10 pr-10 h-10 flex items-center justify-center bg-opacity-60 backdrop-blur-md 	">
-            <li>
-                <a href="#" class="hover:underline">Accueil</a>
-                </li>
-                <li>
-                <a href="#infos" class="hover:underline">Infos</a>
-                </li>
-                <li>
-                <a href="#" class="hover:underline">Dons</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Concours</a>
-                </li>
-        </div>
-        <div>
-            
-            <li class="h-12 blue w-12 flex items-center justify-center rounded-md md:hidden ">
-                <img id="buttonOpen" src="assets/img/open.svg" class="h-10"  alt="">
-                <img id="buttonClose" src="assets/img/close.svg" class="h-10 hidden"  alt="">
-
-            </li>
-        </div>
-    </ul>
-    <div  class="absolute left-0 h-10 md:h-96 z-20 hidden md:flex">
-            <svg width="357" height="520" class=""  viewBox="0 0 357 520" fill="" xmlns="http://www.w3.org/2000/svg">
-                <path d="M133.833 399.234C138.27 432.461 126.709 465.827 102.667 489.187C75.631 515.456 36.3025 525.267 0 515.115L0.000411245 0L307.005 0.000497063C372.898 0.000514482 370.398 110.163 316.5 136.905C307.398 141.421 300.023 141.421 291.481 141.421L271.72 141.421C162.214 141.421 112.38 238.574 126.874 347.116L133.833 399.234Z" fill="#3462C5"/>
-            </svg>
-      
-    </div>
-    
-    <li class="z-30 md:z-50">
-        <section class="fixed  z-30 md:z-50 top-20 md:top-6 right-10  ">
-            <div class="h-80">
-                <div class="button" aria-label="Menu d'options d'accessibilité">
-                    <p tabindex="0"  class="text-black hidden md:flex">Accessibilité</p>
-                    <p tabindex="0"  class="text-black flex md:hidden"><svg width="50px" height="50px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#3462C5" stroke="#3462C5">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                        
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                        
-                        <g id="SVGRepo_iconCarrier"> <title>accessibility-circle-solid</title> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"/> </g> <g id="icons_Q2" data-name="icons Q2"> <path d="M24,2A22,22,0,1,0,46,24,21.9,21.9,0,0,0,24,2Zm0,8a3,3,0,1,1-3,3A2.9,2.9,0,0,1,24,10ZM35,21H28v4.8l2,9.8A2.1,2.1,0,0,1,28.4,38H28a2.1,2.1,0,0,1-2-1.6L24.2,27h-.4L22,36.4A2.1,2.1,0,0,1,20,38h-.4A2.1,2.1,0,0,1,18,35.6l2-9.8V21H13a2,2,0,0,1,0-4H35a2,2,0,0,1,0,4Z"/> </g> </g> </g>
-                        
-                        </svg></p>
-
-                    <img src="https://svgshare.com/i/8u6.svg" alt="" class="arrow" aria-hidden="true">
-                </div>
-                <div class="dropdown" aria-label="Options d'accessibilité">
-                    <a tabindex="0" id="protanopie" aria-label="Activer le mode Protanopie">Protanopie <span></span></a>
-                    <a tabindex="0" id="deuteranopie" aria-label="Activer le mode Deuteranopie">Deuteranopie <span></span></a>
-                    <a tabindex="0" id="tritanopie" aria-label="Activer le mode Tritanopie">Tritanopie <span></span></a>
-                    <a tabindex="0" id="dyslexique" aria-label="Activer le mode Dyslexique">Dyslexique <span></span></a>
-                    <a tabindex="0" id="primary" class="resetColorBtn" aria-label="Rétablir les couleurs classiques">Couleurs Classique<span></span></a>
-                    <div class="controls" aria-label="Contrôles de zoom et réinitialisation">
-                        <div class="btn-wrapper">
-                            <button tabindex="0" id="zoom-out" aria-label="Réduire le zoom">-</button>
-                            <button tabindex="0" id="zoom-in" aria-label="Augmenter le zoom">+</button>
-                        </div>
-                        <button tabindex="0" id="reset" aria-label="Réinitialiser les paramètres d'accessibilité">Reset</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </li>
-<body>
-
-    <div class="rounded-xl h-fit w-screen flex flex-col relative gap-20  items-center z-20">
-
-        <div class="h-[100vh] w-[65vw] flex-col rounded-xl items-center justify-center flex  ">
-            <h1 class="blueText md:text-[10rem] font-bold  text-3xl h-28 ">BlueBody</h1>
-            <div class="flex gap-6"> 
-                <a href="#infos" tabindex="0" class="w-fit h-10 hover:outline-4 cursor-pointer blue   flex items-center justify-center text-white p-6 rounded-xl ">
-                    En savoir plus
-                </a>
-                <div tabindex="0" class="w-fit h-10 hover:outline-4 border-2 border-neutral-500 cursor-pointer bg-white flex items-center justify-center p-6 rounded-xl ">
-                    Nous
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="p-6 flex items-center justify-center">
-            <h2 id="infos"    class="text-2xl font-bold">Infos</h2>
-        </div>
-        <div class="flex-col md:flex-row flex  items-center w-screen justify-center gap-10 z-20 ">
-            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
-                <p class="scale-[300%]">🩸</p>
-                <p class="p-6">Le sang parcourt 12 000 km de vaisseaux chaque jour dans votre corps, soit 4 fois la distance des côtes californiennes !</p>
-            </div>
-            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
-                <p class="scale-[300%]">❤️</p>
-                <p class="p-6">Votre cœur bat 100 000 fois par jour, soit 35 millions de fois par an, l'équivalent du nombre de poissons migrateurs !</p>
-            </div>
-            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
-                <p class="scale-[300%]">🍃</p>
-                <p class="p-6">Chaque minute, vos poumons filtrent 5 litres d'air, comme les filtres naturels des herbiers sous-marins.</p>
-            </div>
-            <div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-md	 shadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
-                <p class="scale-[300%]">🐟</p>
-                <p class="p-6">Vos reins purifient 180 litres de sang par jour, un vrai système de filtration inspiré des mangroves.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="h-screen w-screen overflow-hidden md:overflow-visible relative">
-        <div class="absolute right-0 hidden md:flex h-96 z-20 md:-translate-y-52 md:translate-x-28 md:translate-x-0 z-0">
-            <svg width="254" height="254" viewBox="0 0 254 254" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M33.5752 185.365C24.8664 205.937 42.4104 227.981 64.4126 224.112L73.6694 222.484C79.1131 221.526 84.7094 221.939 89.9537 223.685L110.842 230.638C115.684 232.25 120.097 234.941 123.748 238.506L131.794 246.362C144.236 258.512 164.916 254.962 172.594 239.358C177.868 228.638 189.865 223 201.484 225.782L207.195 227.149C221.799 230.645 236.917 223.812 243.944 210.541L247.938 202.998C258.69 182.691 251.974 157.528 232.532 145.28L210.678 131.512C192.444 120.025 180.337 100.952 177.701 79.5622L176.396 68.9748C171.395 28.3886 135.938 -1.47117 95.0929 0.505607C84.1612 1.03466 73.4628 3.85497 63.6909 8.78372L41.5426 19.955C37.7325 21.8768 34.1773 24.2669 30.9596 27.0699L26.2727 31.1527C18.0773 38.2919 13.373 48.6287 13.373 59.4976C13.373 62.6252 12.9827 65.7406 12.2111 68.7715L7.85767 85.8724C7.22231 88.3681 6.33544 90.7931 5.21067 93.1098L1.82219 100.089C0.635812 102.533 0.225026 105.281 0.644924 107.965C1.54463 113.716 6.07428 118.216 11.8306 119.078L13.1617 119.277C17.1618 119.877 20.7562 122.05 23.1447 125.314L28.6042 132.775C33.283 139.17 35.8051 146.887 35.8051 154.81L35.8051 174.377C35.8051 178.152 35.0468 181.889 33.5752 185.365Z" fill="#3462C5"/>
-                </svg>
-        </div>
-    </div>
-   
-    
-        
-
-</body>
-<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2024/12/05/23/20241205232102-ICTBX6VK.js"></script>
+	<head>
+		<title>My Website</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="assets/js/main.js"></script>
+		<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+		<link href="assets/css/main.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/rgaa.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script   script src="assets/js/rgaa.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap">
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<div id="menu" class="h-[99vh] w-screen text-2xl gap-4 z-50 bg-white hidden fixed flex items-center justify-center  flex-col  ">
+		<li><a href="#" class="hover:underline">Accueil</a></li>
+		<li><a href="#infos" class="hover:underline">Infos</a></li>
+		<li><a href="/pages/meteo.html" class="hover:underline">Météo</a></li>
+		<li><a href="/pages/concours.html" class="hover:underline">Concours</a></li>
+		<li><a href="/pages/captcha.html" class="hover:underline">Captcha</a></li>
+	</div>
+	<ul class="z-50 fixed w-screen  bg-opacity-40flex justify-center gap-10 h-20 flex items-center text-xl border-b-xl justify-between p-10 font-bold   ">
+		<div>
+			<a href="#" class="mix-blend-normal"><img src="assets/img/logo.svg" class="h-12" alt="logo BlueBody"></a>
+		</div>
+		<div class="flex gap-10 hidden w-fit md:flex bg-white rounded-xl pl-10 pr-10 h-10 flex items-center justify-center bg-opacity-60 backdrop-blur-md   ">
+			<li><a href="#" class="hover:underline">Accueil</a></li>
+			<li><a href="#infos" class="hover:underline">Infos</a></li>
+			<li><a href="pages/meteo.html" class="hover:underline">Météo</a></li>
+			<li><a href="pages/concours.html" class="hover:underline">Concours</a></li>
+			<li><a href="pages/Captcha.html" class="hover:underline">Captcha</a></li>
+		</div>
+		<div>
+			<li class="h-12 blue w-12 flex items-center justify-center rounded-md md:hidden ">
+				<img id="buttonOpen" src="assets/img/open.svg" class="h-10"  alt="">
+				<img id="buttonClose" src="assets/img/close.svg" class="h-10 hidden"  alt="">
+			</li>
+		</div>
+	</ul>
+	<div  class="absolute left-0 h-10 md:h-96 z-20 hidden md:flex">
+		<svg width="357" height="520" class=""  viewBox="0 0 357 520" fill="" xmlns="http://www.w3.org/2000/svg">
+			<path d="M133.833 399.234C138.27 432.461 126.709 465.827 102.667 489.187C75.631 515.456 36.3025 525.267 0 515.115L0.000411245 0L307.005 0.000497063C372.898 0.000514482 370.398 110.163 316.5 136.905C307.398 141.421 300.023 141.421 291.481 141.421L271.72 141.421C162.214 141.421 112.38 238.574 126.874 347.116L133.833 399.234Z" fill="#3462C5"/>
+		</svg>
+	</div>
+	<li class="z-30 md:z-50">
+		<section class="fixed  z-30 md:z-50 top-20 md:top-6  md:right-10  ">
+			<div class="h-80">
+				<div class="button" aria-label="Menu d'options d'accessibilité">
+					<p tabindex="0"  class="text-black hidden md:flex">
+						Accessibilité
+					</p>
+					<p tabindex="0"  class="text-black flex md:hidden">
+						<svg width="50px" height="50px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#3462C5" stroke="#3462C5">
+							<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+							<g id="SVGRepo_iconCarrier">
+								<title>accessibility-circle-solid</title>
+								<g id="Layer_2" data-name="Layer 2">
+									<g id="invisible_box" data-name="invisible box">
+										<rect width="48" height="48" fill="none"/>
+									</g>
+									<g id="icons_Q2" data-name="icons Q2">
+										<path d="M24,2A22,22,0,1,0,46,24,21.9,21.9,0,0,0,24,2Zm0,8a3,3,0,1,1-3,3A2.9,2.9,0,0,1,24,10ZM35,21H28v4.8l2,9.8A2.1,2.1,0,0,1,28.4,38H28a2.1,2.1,0,0,1-2-1.6L24.2,27h-.4L22,36.4A2.1,2.1,0,0,1,20,38h-.4A2.1,2.1,0,0,1,18,35.6l2-9.8V21H13a2,2,0,0,1,0-4H35a2,2,0,0,1,0,4Z"/>
+									</g>
+								</g>
+							</g>
+						</svg>
+					</p>
+					<img src="https://svgshare.com/i/8u6.svg" alt="" class="arrow" aria-hidden="true">
+				</div>
+				<div class="dropdown" aria-label="Options d'accessibilité">
+					<a tabindex="0" id="protanopie" aria-label="Activer le mode Protanopie">Protanopie <span></span></a>
+					<a tabindex="0" id="deuteranopie" aria-label="Activer le mode Deuteranopie">Deuteranopie <span></span></a>
+					<a tabindex="0" id="tritanopie" aria-label="Activer le mode Tritanopie">Tritanopie <span></span></a>
+					<a tabindex="0" id="dyslexique" aria-label="Activer le mode Dyslexique">Dyslexique <span></span></a>
+					<a tabindex="0" id="primary" class="resetColorBtn" aria-label="Rétablir les couleurs classiques">Couleurs Classique<span></span></a>
+					<div class="controls" aria-label="Contrôles de zoom et réinitialisation">
+						<p class="label-btn">
+							 Changer la taille de police 
+						</p>
+						<div class="btn-wrapper">
+							<button tabindex="0" id="zoom-out" aria-label="Réduire le zoom">-</button>
+							<button tabindex="0" id="zoom-in" aria-label="Augmenter le zoom">+</button>
+						</div>
+						<button tabindex="0" id="reset" aria-label="Réinitialiser les paramètres d'accessibilité">Réinitialiser</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</li>
+	<body>
+		<div class="rounded-xl h-fit w-screen flex flex-col relative gap-20  items-center z-20">
+			<div class="h-[100vh] w-[65vw] flex-col rounded-xl items-center justify-center flex  ">
+				<h1 class="blueText md:text-[10rem] font-bold  text-3xl h-28 ">BlueBody</h1>
+				<div class="flex gap-6">
+					<a href="#infos" tabindex="0" class="w-fit h-10 hover:outline-4 cursor-pointer blue   flex items-center justify-center text-white p-6 rounded-xl ">En savoir plus</a>
+					<a href="pages/propos.html" tabindex="0" class="w-fit h-10 hover:outline-4 border-2 border-neutral-500 cursor-pointer bg-white flex items-center justify-center p-6 rounded-xl ">Nous</a>
+				</div>
+			</div>
+			<div class="p-6 flex items-center justify-center">
+				<h2 id="infos"class="text-2xl font-bold">Infos</h2>
+			</div>
+			<div class="flex-col md:flex-row flex  items-center w-screen justify-center gap-10 z-20 ">
+				<div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-mdshadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+					<p class="scale-[300%]">
+						🩸
+					</p>
+					<p class="p-6">
+						Le sang parcourt 12 000 km de vaisseaux chaque jour dans votre corps, soit 4 fois la distance des côtes californiennes !
+					</p>
+				</div>
+				<div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-mdshadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+					<p class="scale-[300%]">
+						❤️
+					</p>
+					<p class="p-6">
+						Votre cœur bat 100 000 fois par jour, soit 35 millions de fois par an, l'équivalent du nombre de poissons migrateurs !
+					</p>
+				</div>
+				<div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-mdshadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+					<p class="scale-[300%]">
+						🍃
+					</p>
+					<p class="p-6">
+						Chaque minute, vos poumons filtrent 5 litres d'air, comme les filtres naturels des herbiers sous-marins.
+					</p>
+				</div>
+				<div class="h-96 hover:scale-110 hover:bg-opacity-80 backdrop-blur-mdshadow-lg duration-300  bg-white w-72 border border-2 rounded-xl flex items-center justify-center flex-col">
+					<p class="scale-[300%]">
+						🐟
+					</p>
+					<p class="p-6">
+						Vos reins purifient 180 litres de sang par jour, un vrai système de filtration inspiré des mangroves.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class=" overflow-hidden md:overflow-visible relative">
+			<div class="absolute right-0 hidden md:flex h-96 z-10 md:-translate-y-52 md:translate-x-28 md:translate-x-0 z-0">
+				<svg width="254" height="254" viewBox="0 0 254 254" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M33.5752 185.365C24.8664 205.937 42.4104 227.981 64.4126 224.112L73.6694 222.484C79.1131 221.526 84.7094 221.939 89.9537 223.685L110.842 230.638C115.684 232.25 120.097 234.941 123.748 238.506L131.794 246.362C144.236 258.512 164.916 254.962 172.594 239.358C177.868 228.638 189.865 223 201.484 225.782L207.195 227.149C221.799 230.645 236.917 223.812 243.944 210.541L247.938 202.998C258.69 182.691 251.974 157.528 232.532 145.28L210.678 131.512C192.444 120.025 180.337 100.952 177.701 79.5622L176.396 68.9748C171.395 28.3886 135.938 -1.47117 95.0929 0.505607C84.1612 1.03466 73.4628 3.85497 63.6909 8.78372L41.5426 19.955C37.7325 21.8768 34.1773 24.2669 30.9596 27.0699L26.2727 31.1527C18.0773 38.2919 13.373 48.6287 13.373 59.4976C13.373 62.6252 12.9827 65.7406 12.2111 68.7715L7.85767 85.8724C7.22231 88.3681 6.33544 90.7931 5.21067 93.1098L1.82219 100.089C0.635812 102.533 0.225026 105.281 0.644924 107.965C1.54463 113.716 6.07428 118.216 11.8306 119.078L13.1617 119.277C17.1618 119.877 20.7562 122.05 23.1447 125.314L28.6042 132.775C33.283 139.17 35.8051 146.887 35.8051 154.81L35.8051 174.377C35.8051 178.152 35.0468 181.889 33.5752 185.365Z" fill="#3462C5"/>
+				</svg>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+	<script src="https://files.bpcontent.cloud/2024/12/05/23/20241205232102-ICTBX6VK.js"></script>
 </html>

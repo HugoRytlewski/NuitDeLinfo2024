@@ -449,3 +449,7 @@ textarea {
 .modal.open {
     display: flex !important;
 }
+
+textarea {
+    resize: none;
+  }
