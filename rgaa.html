@@ -5,22 +5,22 @@
 
 <section class="accessibilite">
     <div class="container">
-        <div class="button">
+        <div class="button" aria-label="Menu d'options d'accessibilité">
             <p>Accessibilité</p>
-            <img src="https://svgshare.com/i/8u6.svg" alt="" class="arrow">
+            <img src="https://svgshare.com/i/8u6.svg" alt="" class="arrow" aria-hidden="true">
         </div>
-        <div class="dropdown">
-            <a href="#" id="protanopie">Protanopie <span></span></a>
-            <a href="#" id="deuteranopie">Deuteranopie <span></span></a>
-            <a href="#" id="tritanopie">Tritanopie <span></span></a>
-            <a href="#" id="dyslexique">Dyslexique <span></span></a>
-            <a href="#" id="primary" class="resetColorBtn">Couleurs Classique<span></span></a>
-            <div class="controls">
+        <div class="dropdown" aria-label="Options d'accessibilité">
+            <a href="#" id="protanopie" aria-label="Activer le mode Protanopie">Protanopie <span></span></a>
+            <a href="#" id="deuteranopie" aria-label="Activer le mode Deuteranopie">Deuteranopie <span></span></a>
+            <a href="#" id="tritanopie" aria-label="Activer le mode Tritanopie">Tritanopie <span></span></a>
+            <a href="#" id="dyslexique" aria-label="Activer le mode Dyslexique">Dyslexique <span></span></a>
+            <a href="#" id="primary" class="resetColorBtn" aria-label="Rétablir les couleurs classiques">Couleurs Classique<span></span></a>
+            <div class="controls" aria-label="Contrôles de zoom et réinitialisation">
                 <div class="btn-wrapper">
-                    <button id="zoom-out">-</button>
-                    <button id="zoom-in">+</button>
+                    <button id="zoom-out" aria-label="Réduire le zoom">-</button>
+                    <button id="zoom-in" aria-label="Augmenter le zoom">+</button>
                 </div>
-                <button id="reset">Reset</button>
+                <button id="reset" aria-label="Réinitialiser les paramètres d'accessibilité">Reset</button>
             </div>
         </div>
     </div>
