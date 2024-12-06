@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="assets/main.css" rel="stylesheet" />
     <script src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="./assets/rgaa.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./assets/rgaa.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <div id="menu" class="h-[99vh] w-screen text-2xl gap-4 z-50 bg-white hidden fixed flex items-center justify-center  flex-col  ">
@@ -44,7 +48,28 @@
         </div>
         <div>
             <li>
-                <div class="bg-[#3462C5] hidden md:flex text-white  h-10 p-3 w-fit p-2  rounded-md text-black items-center flex justify-center">Contact</div>
+                <section class="accessibilite">
+                    <div class="container">
+                        <div class="button" aria-label="Menu d'options d'accessibilité">
+                            <p>Accessibilité</p>
+                            <img src="https://svgshare.com/i/8u6.svg" alt="" class="arrow" aria-hidden="true">
+                        </div>
+                        <div class="dropdown" aria-label="Options d'accessibilité">
+                            <a href="#" id="protanopie" aria-label="Activer le mode Protanopie">Protanopie <span></span></a>
+                            <a href="#" id="deuteranopie" aria-label="Activer le mode Deuteranopie">Deuteranopie <span></span></a>
+                            <a href="#" id="tritanopie" aria-label="Activer le mode Tritanopie">Tritanopie <span></span></a>
+                            <a href="#" id="dyslexique" aria-label="Activer le mode Dyslexique">Dyslexique <span></span></a>
+                            <a href="#" id="primary" class="resetColorBtn" aria-label="Rétablir les couleurs classiques">Couleurs Classique<span></span></a>
+                            <div class="controls" aria-label="Contrôles de zoom et réinitialisation">
+                                <div class="btn-wrapper">
+                                    <button id="zoom-out" aria-label="Réduire le zoom">-</button>
+                                    <button id="zoom-in" aria-label="Augmenter le zoom">+</button>
+                                </div>
+                                <button id="reset" aria-label="Réinitialiser les paramètres d'accessibilité">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </li>
             <li class="h-12 bg-[#3462C5] w-12 flex items-center justify-center rounded-md md:hidden ">
                 <img id="buttonOpen" src="assets/img/open.svg" class="h-10"  alt="">
@@ -53,7 +78,7 @@
             </li>
         </div>
     </ul>
-    <img src="assets/img/blob.svg" alt="" class="absolute left-0 h-52 md:h-96 z-20">
+    <img src="assets/img/blob.svg" alt="" style="fill:aqua;"  class="absolute left-0 h-52 md:h-96 z-20">
 
 <body>
 

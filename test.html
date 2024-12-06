@@ -1,41 +1,149 @@
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Title of the document</title>
-<link href="assets/main.css" rel="stylesheet" />
-<script src="assets/js/main.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>App Météo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            background-color: #1a1a2e; 
+            color: white; 
+        }
+    </style>
 </head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="container flex flex-col items-center justify-center gap-10">
+        <div class="weather-container flex flex-col items-center mt-10">
+            <div class="flex mb-6">
+                <input 
+                    id="cityInput" 
+                    type="text" 
+                    placeholder="Entrez votre ville" 
+                    class="h-14 rounded-l-[8px] border-white border-4 p-4 md:w-80 text-center text-black"
+                    value="Limoges"
+                />
+                <button 
+                    id="searchBtn" 
+                    class="flex items-center justify-center rounded-r-[8px] h-14 w-14 bg-blue-500 text-white"
+                >
+                    <svg 
+                        class="fill-white h-8" 
+                        clip-rule="evenodd" 
+                        fill-rule="evenodd" 
+                        stroke-linejoin="round" 
+                        stroke-miterlimit="2" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path 
+                            d="m15.97 17.031c-1.479 1.238-3.384 1.985-5.461 1.985-4.697 0-8.509-3.812-8.509-8.508s3.812-8.508 8.509-8.508c4.695 0 8.508 3.812 8.508 8.508 0 2.078-.747 3.984-1.985 5.461l4.749 4.75c.146.146.219.338.219.531 0 .587-.537.75-.75.75-.192 0-.384-.073-.531-.22zm-5.461-13.53c-3.868 0-7.007 3.14-7.007 7.007s3.139 7.007 7.007 7.007c3.866 0 7.007-3.14 7.007-7.007s-3.141-7.007-7.007-7.007z"
+                            fill-rule="nonzero"
+                        />
+                    </svg>
+                </button>
+            </div>
 
-<body>
-
-    <div class="z-[100] fixed hidden md:flex w-[100vw] h-[4rem]  justify-center gap-96 p-10 items-center ">
-        <p to="/#element1" class="dark:text-white ">Hugo Rytlewski</p>
-        <div class="dark:bg-neutral-900 bg-white flex text-white gap-6 border border-neutral-500 dark:border-neutral-800 p-3 rounded-full w-[28rem] items-center justify-around text-sm">
-    
-            <a href="/#propos" @click="smoothScroll('#propos')" :class="{ 'dark:text-white text-black': route.hash === '#propos', 'text-neutral-400': route.hash !== '#propos', 'hover:text-black dark:text-neutral-400 dark:hover:text-white duration-300 text-[13px]': true } ">A propos</a>
-            <a href="/#competence" @click="smoothScroll('#competence')" :class="{ 'dark:text-white text-black': route.hash === '#competence', 'text-neutral-400': route.hash !== '#competence', 'hover:text-black dark:text-neutral-400 dark:hover:text-white duration-300 text-[13px]': true }">Compétences</a>
+            <img id="cloudImage" src="https://via.placeholder.com/300x200" alt="Cloud" class="md:h-64 z-10 mb-4"/>
             
-            <a v-if="route.path != '/' " href="/allProjects" @click="smoothScroll('#projects')" :class="{ 'dark:text-white text-black': route.hash === '#projects', 'text-neutral-400': route.hash !== '#projects', 'hover:text-black dark:text-neutral-400 dark:hover:text-white duration-300 text-[13px]': true }">Projets</a>
-            <a v-if="route.path == '/' " href="#projects" @click="smoothScroll('#projects')" :class="{ 'dark:text-white text-black': route.hash === '#projects', 'text-neutral-400': route.hash !== '#projects', 'hover:text-black dark:text-neutral-400 dark:hover:text-white duration-300 text-[13px]': true }">Projets</a>
-    
-            <a href="/#veille" @click="smoothScroll('#veille')" :class="{ 'dark:text-white text-black': route.hash === '#veille', 'text-neutral-400': route.hash !== '#veille', 'hover:text-black dark:text-neutral-400 dark:hover:text-white duration-300 text-[13px]': true }">Veille</a>
-    
-            <a href="#contact" @click="smoothScroll('#contact')" :class="{ 'dark:text-white text-black': route.hash === '#contact', 'text-neutral-400': route.hash !== '#contact', 'hover:text-black dark:text-neutral-400 dark:hover:text-white duration-300 text-[13px]': true }">Contact</a>
+            <h1 id="cityName" class="text-2xl mb-4">Limoges</h1>
+
+            <div class="weather-info flex justify-center items-center gap-4 text-white text-5xl font-bold w-72 md:w-96 p-4 bg-blue-600 rounded-lg">
+                <p id="temperature">--°C</p>
+                <img id="weatherIcon" src="" alt="Icone météo" class="w-20"/>
+            </div>
         </div>
-        <div class="bg-white dark:bg-neutral-900 flex text-white gap-6 border border-neutral-800 p-3 rounded-full w-[6rem] items-center justify-around text-sm">
-            <button @click="setMode('dark')">
-                <svg   xmlns="http://www.w3.org/2000/svg" class="fill-dark dark:fill-white dark:opacity-100 opacity-50 stroke-white  hover:opacity-100 duration-300" height="20" viewBox="0 -960 960 960" width="24"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
-            </button>
-            <button @click="setMode('light')" > 
-                <svg   class="fill-dark dark:fill-white dark:opacity-40  hover:opacity-100 duration-300 " xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="20"><path d="M480-28 346-160H160v-186L28-480l132-134v-186h186l134-132 134 132h186v186l132 134-132 134v186H614L480-28Zm0-252q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0-200Zm0 340 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140l100 100Zm0-340Z"/></svg>
-            </button>
-        </div>    
+
+        <div class="footer text-center text-white opacity-40 mt-6">
+            <span class="text-sm">
+                © 2023 Météo, 
+                <a href="https://hugorytlewski.com" target="_blank" class="hover:underline">Hugo Rytlewski</a>
+                Tous droits réservés
+            </span>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="https://www.linkedin.com/in/hugo-rytlewski-b06841281/" target="_blank">
+                    <img class="w-6" src="https://via.placeholder.com/24" alt="LinkedIn"/>
+                </a>
+                <a href="https://github.com/HugoRytlewski" target="_blank">
+                    <img class="w-6" src="https://via.placeholder.com/24" alt="GitHub"/>
+                </a>
+            </div>
+        </div>
+
+        <div 
+            id="errorModal" 
+            class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-10"
+        >
+            <div class="bg-neutral-900 text-white p-8 rounded-xl text-center max-w-md">
+                <img src="https://via.placeholder.com/160" alt="Error" class="mx-auto mb-6 w-40"/>
+                <p class="text-xl mb-6">
+                    La ville saisie n'a pas été trouvée ou est incorrecte
+                </p>
+                <button 
+                    id="closeModalBtn"
+                    class="bg-white text-black rounded-xl h-10 w-28 text-md"
+                >
+                    D'accord !
+                </button>
+            </div>
+        </div>
     </div>
 
-</body>
+    <script>
+        const API_KEY = '1c014d7470bc87a0ac57d62cc0cf852b';
 
+        // Elements
+        const cityInput = document.getElementById('cityInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const cityName = document.getElementById('cityName');
+        const temperature = document.getElementById('temperature');
+        const weatherIcon = document.getElementById('weatherIcon');
+        const errorModal = document.getElementById('errorModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Fetch weather data
+        async function getMeteo(city) {
+            try {
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=fr&appid=${API_KEY}`;
+                const response = await axios.get(apiUrl);
+                const data = response.data;
+
+                // Update UI
+                cityName.textContent = data.name;
+                temperature.textContent = `${parseInt(data.main.temp)}°C`;
+                weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+                
+                console.log(data);
+            } catch (error) {
+                showErrorModal();
+                console.error('Erreur météo', error);
+            }
+        }
+
+        // Show error modal
+        function showErrorModal() {
+            errorModal.classList.remove('hidden');
+            errorModal.classList.add('flex');
+        }
+
+        // Close error modal
+        function closeModal() {
+            errorModal.classList.remove('flex');
+            errorModal.classList.add('hidden');
+            cityInput.value = '';
+        }
+
+        // Event Listeners
+        searchBtn.addEventListener('click', () => getMeteo(cityInput.value));
+        cityInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                getMeteo(cityInput.value);
+            }
+        });
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Initial load
+        getMeteo('Limoges');
+    </script>
+</body>
 </html>
