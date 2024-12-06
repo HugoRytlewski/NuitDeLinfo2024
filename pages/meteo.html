@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <title>App Météo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="../assets/css/meteo.css" rel="stylesheet" />
+
+</head>
+<body style="position: relative;">
+    <div style="position: absolute; top: 15px; left: 15px; width: 10vh; height: 10vh; border-radius: 999px; background-color: grey; display: flex; align-items: center; justify-content: center;">
+        <a href="./../index.html" style="width: 60%; height: 60%;"><img src="./../assets/img/back-arrow-svgrepo-com.svg" alt="Retour" style="width: 100%; height: 100%;"/></a>
+        
+    </div>
+    <div class="weather-effects"></div>
+
+    <div class="container">
+        <div class="weather-container">
+            <div class="search-container">
+                <input 
+                    id="cityInput" 
+                    type="text" 
+                    placeholder="Entrez votre ville" 
+                    value="Limoges"
+                    aria-label="Rechercher une ville"
+                />
+                <button 
+                    id="searchBtn" 
+                    title="Rechercher"
+                >
+                    <svg 
+                        clip-rule="evenodd" 
+                        fill-rule="evenodd" 
+                        stroke-linejoin="round" 
+                        stroke-miterlimit="2" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path 
+                            d="m15.97 17.031c-1.479 1.238-3.384 1.985-5.461 1.985-4.697 0-8.509-3.812-8.509-8.508s3.812-8.508 8.509-8.508c4.695 0 8.508 3.812 8.508 8.508 0 2.078-.747 3.984-1.985 5.461l4.749 4.75c.146.146.219.338.219.531 0 .587-.537.75-.75.75-.192 0-.384-.073-.531-.22zm-5.461-13.53c-3.868 0-7.007 3.14-7.007 7.007s3.139 7.007 7.007 7.007c3.866 0 7.007-3.14 7.007-7.007s-3.141-7.007-7.007-7.007z"
+                            fill-rule="nonzero"
+                        />
+                    </svg>
+                </button>
+            </div>
+
+            <img id="cloudImage" src="../assets/img/cloud.png" alt="Cloud"/>
+            
+            <h1 id="cityName">Limoges</h1>
+
+            <div class="weather-info">
+                <p id="temperature">--°C</p>
+                <img id="weatherIcon" src="" alt="Icone météo"/>
+            </div>
+        </div>
+
+        
+
+        <div id="errorModal">
+            <div class="error-modal-content">
+                <svg height="100px" width="100px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17.837 17.837" xml:space="preserve" fill="#000000">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <g id="SVGRepo_iconCarrier"> <g> <g> <path style="fill:noir;" d="M10.82,9.144c0.502-0.502,0.502-1.314,0-1.817l-0.114-0.113c-0.455-0.457-1.17-0.496-1.673-0.121 L6.751,4.81c0.104-0.352,0.016-0.747-0.262-1.024c-0.403-0.404-1.059-0.404-1.462,0L3.721,5.091c-0.404,0.404-0.405,1.059,0,1.463 c0.276,0.278,0.673,0.364,1.024,0.261l2.282,2.282C6.652,9.6,6.693,10.314,7.149,10.77l0.114,0.114 c0.501,0.502,1.315,0.502,1.816,0l0.408-0.409l4.3,3.574l0.197-0.198L10.41,9.553L10.82,9.144z"/> <path style="fill:noir;" d="M8.918,0C4,0,0,4,0,8.918s4,8.919,8.918,8.919s8.919-4.001,8.919-8.919S13.836,0,8.918,0z M8.918,16.793c-2,0-3.823-0.756-5.213-1.988l3.362-3.362c-0.037-0.03-0.077-0.055-0.111-0.089l-0.113-0.112 c-0.285-0.285-0.452-0.648-0.504-1.027l-3.587,3.588c-1.068-1.345-1.709-3.04-1.709-4.885c0-4.343,3.532-7.875,7.875-7.875 c1.845,0,3.54,0.642,4.884,1.708L10.11,6.443c0.381,0.054,0.749,0.222,1.027,0.502l0.113,0.111 c0.034,0.035,0.06,0.074,0.092,0.111l3.463-3.463c1.232,1.391,1.988,3.214,1.988,5.214C16.793,13.261,13.261,16.793,8.918,16.793z "/> </g> </g> </g>
+                    
+                    </svg>
+                <p class="error-modal-text">
+                    La ville saisie n'a pas été trouvée ou est incorrecte
+                </p>
+                <button id="closeModalBtn">
+                    D'accord !
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const API_KEY = '1c014d7470bc87a0ac57d62cc0cf852b';
+
+// Elements
+const cityInput = document.getElementById('cityInput');
+const searchBtn = document.getElementById('searchBtn');
+const cityName = document.getElementById('cityName');
+const temperature = document.getElementById('temperature');
+const weatherIcon = document.getElementById('weatherIcon');
+const errorModal = document.getElementById('errorModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+
+// Fetch weather data
+async function getMeteo(city) {
+    try {
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=fr&appid=${API_KEY}`;
+        const response = await axios.get(apiUrl);
+        const data = response.data;
+
+        // Update UI
+        cityName.textContent = data.name;
+        temperature.textContent = `${parseInt(data.main.temp)}°C`;
+        weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+        // Change background based on weather condition
+        const weatherCondition = data.weather[0].main.toLowerCase();
+const icon = data.weather[0].icon; // L'icône contient 'n' pour nuit et 'd' pour jour
+const isNight = icon.includes('n');
+
+document.body.className = weatherCondition;
+if (isNight) {
+    document.body.classList.add('night');
+} else {
+    document.body.classList.remove('night');
+}
+        console.log(data);
+    } catch (error) {
+        showErrorModal();
+        console.error('Erreur météo', error);
+    }
+}
+
+
+
+// Show error modal
+function showErrorModal() {
+    errorModal.style.display = 'flex';
+}
+
+// Close error modal
+function closeModal() {
+    errorModal.style.display = 'none';
+    cityInput.value = '';
+}
+
+// Event Listeners
+searchBtn.addEventListener('click', () => getMeteo(cityInput.value));
+cityInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        getMeteo(cityInput.value);
+    }
+});
+closeModalBtn.addEventListener('click', closeModal);
+
+// Initial load
+getMeteo('Limoges');
+
+    </script>
+</body>
+</html>
