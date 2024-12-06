@@ -4,15 +4,14 @@
   <title>My Website</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="assets/main.css" rel="stylesheet" />
     <script src="assets/js/main.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-
-    <link rel="stylesheet" href="./assets/rgaa.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./assets/rgaa.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/rgaa.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script   script src="assets/js/rgaa.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <div id="menu" class="h-[99vh] w-screen text-2xl gap-4 z-50 bg-white hidden fixed flex items-center justify-center  flex-col  ">
     <li>
@@ -22,10 +21,13 @@
         <a href="#infos" class="hover:underline">Infos</a>
         </li>
         <li>
-        <a href="#" class="hover:underline">Dons</a>
+        <a href="/pages/meteo.html" class="hover:underline">Météo</a>
         </li>
         <li>
-            <a href="#" class="hover:underline">Concours</a>
+            <a href="/pages/concours.html" class="hover:underline">Concours</a>
+        </li>
+        <li>
+            <a href="/pages/Captcha.html" class="hover:underline">Captcha</a>
         </li>
 
         
@@ -44,10 +46,13 @@
                 <a href="#infos" class="hover:underline">Infos</a>
                 </li>
                 <li>
-                <a href="#" class="hover:underline">Dons</a>
+                    <a href="pages/meteo.html" class="hover:underline">Météo</a>
+                    </li>
+                <li>
+                    <a href="pages/concours.html" class="hover:underline">Concours</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Concours</a>
+                    <a href="pages/Captcha.html" class="hover:underline">Captcha</a>
                 </li>
         </div>
         <div>
@@ -110,9 +115,9 @@
                 <a href="#infos" tabindex="0" class="w-fit h-10 hover:outline-4 cursor-pointer blue   flex items-center justify-center text-white p-6 rounded-xl ">
                     En savoir plus
                 </a>
-                <div tabindex="0" class="w-fit h-10 hover:outline-4 border-2 border-neutral-500 cursor-pointer bg-white flex items-center justify-center p-6 rounded-xl ">
+                <a href="pages/propos.html" tabindex="0" class="w-fit h-10 hover:outline-4 border-2 border-neutral-500 cursor-pointer bg-white flex items-center justify-center p-6 rounded-xl ">
                     Nous
-                </div>
+                </a>
             </div>
 
         </div>
@@ -149,9 +154,6 @@
                 </svg>
         </div>
     </div>
-   
-    
-        
 
 </body>
 <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
