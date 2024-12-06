@@ -9,8 +9,6 @@
 
 </head>
 <body>
-    <div class="weather-effects"></div>
-
     <div class="container">
         <div class="weather-container">
             <div class="search-container">
@@ -104,24 +102,14 @@ async function getMeteo(city) {
         weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
         // Change background based on weather condition
-        const weatherCondition = data.weather[0].main.toLowerCase();
-const icon = data.weather[0].icon; // L'icône contient 'n' pour nuit et 'd' pour jour
-const isNight = icon.includes('n');
+        document.body.className = data.weather[0].main.toLowerCase();
 
-document.body.className = weatherCondition;
-if (isNight) {
-    document.body.classList.add('night');
-} else {
-    document.body.classList.remove('night');
-}
         console.log(data);
     } catch (error) {
         showErrorModal();
         console.error('Erreur météo', error);
     }
 }
-
-
 
 // Show error modal
 function showErrorModal() {
