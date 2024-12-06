@@ -244,9 +244,8 @@ body.thunderstorm {
 }
 
 body.drizzle {
-    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
 }
-
 body.mist {
     background: linear-gradient(135deg, #d7d2cc 0%, #304352 100%);
 }

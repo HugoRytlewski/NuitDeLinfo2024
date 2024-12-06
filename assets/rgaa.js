@@ -47,21 +47,36 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Bouton pour ouvrir/fermer le menu
-    button.addEventListener("click", function () {
-        dropdownLinks.forEach(link => {
-            const isSelected = selectedModes.has(link.id); // Vérifier si l'élément est sélectionné
-            if (isSelected) {
-                link.classList.add("clicked");
-                link.querySelector("span").classList.add("clicked");
-            } else {
-                link.classList.remove("clicked");
-                link.querySelector("span").classList.remove("clicked");
-            }
-        });
-        arrow.classList.toggle("open");
-        dropdown.classList.toggle("open");
+    
+
+   // Bouton pour ouvrir/fermer le menu
+button.addEventListener("click", function () {
+    toggleMenu();
+});
+
+// Ajouter un événement keydown pour détecter la touche "Enter"
+button.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        toggleMenu();
+    }
+});
+
+// Fonction pour ouvrir/fermer le menu
+function toggleMenu() {
+    dropdownLinks.forEach(link => {
+        const isSelected = selectedModes.has(link.id); // Vérifier si l'élément est sélectionné
+        if (isSelected) {
+            link.classList.add("clicked");
+            link.querySelector("span").classList.add("clicked");
+        } else {
+            link.classList.remove("clicked");
+            link.querySelector("span").classList.remove("clicked");
+        }
     });
+    arrow.classList.toggle("open");
+    dropdown.classList.toggle("open");
+}
+
 
     // Fermer le menu déroulant lorsqu'on clique en dehors
     document.addEventListener("click", function (event) {
@@ -144,45 +159,89 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Lorsque l'on clique sur le bouton dyslexique, on applique ou retire la police dyslexique
-    dyslexiqueButton.addEventListener("click", function () {
-        document.body.classList.toggle('dyslexique');
-        toggleDyslexicMode(); // Mettre à jour la police des éléments
-        if (document.body.classList.contains('dyslexique')) {
-            selectedModes.add('dyslexique');
-        } else {
-            selectedModes.delete('dyslexique');
-        }
-    });
+dyslexiqueButton.addEventListener("click", function () {
+    toggleDyslexicMode();
+});
 
-    // Sélectionner le mode Protanopie
-    protanopiaButton.addEventListener("click", function () {
-        document.body.classList.add('protanopia');
-        document.body.classList.remove('deuteranopia', 'tritanopia', 'primary');
-        selectedModes.add('protanopie');
-        selectedModes.delete('deuteranopia');
-        selectedModes.delete('tritanopia');
-        selectedModes.delete('primary');
-    });
+dyslexiqueButton.addEventListener("keydown", function (event) {
+    // Vérifie si la touche pressée est "Enter" (keyCode 13 ou 'Enter' pour les navigateurs modernes)
+    if (event.key === "Enter") {
+        toggleDyslexicMode();
+    }
+});
 
-    // Sélectionner le mode Deuteranopie
-    deuteranopiaButton.addEventListener("click", function () {
-        document.body.classList.add('deuteranopia');
-        document.body.classList.remove('protanopia', 'tritanopia', 'primary');
-        selectedModes.add('deuteranopie');
-        selectedModes.delete('protanopia');
-        selectedModes.delete('tritanopia');
-        selectedModes.delete('primary');
-    });
+function toggleDyslexicMode() {
+    document.body.classList.toggle('dyslexique');
+    if (document.body.classList.contains('dyslexique')) {
+        selectedModes.add('dyslexique');
+    } else {
+        selectedModes.delete('dyslexique');
+    }
+}
 
-    // Sélectionner le mode Tritanopie
-    tritanopiaButton.addEventListener("click", function () {
-        document.body.classList.add('tritanopia');
-        document.body.classList.remove('protanopia', 'deuteranopia', 'primary');
-        selectedModes.add('tritanopia');
-        selectedModes.delete('protanopia');
-        selectedModes.delete('deuteranopia');
-        selectedModes.delete('primary');
-    });
+
+// Sélectionner le mode Protanopie
+function activateProtanopia() {
+    document.body.classList.add('protanopia');
+    document.body.classList.remove('deuteranopia', 'tritanopia', 'primary');
+    selectedModes.add('protanopia');
+    selectedModes.delete('deuteranopia');
+    selectedModes.delete('tritanopia');
+    selectedModes.delete('primary');
+}
+
+// Écouter le clic
+protanopiaButton.addEventListener("click", activateProtanopia);
+
+// Écouter la touche "Enter"
+protanopiaButton.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        activateProtanopia();
+    }
+});
+
+
+// Sélectionner le mode Deuteranopie
+function activateDeuteranopia() {
+    document.body.classList.add('deuteranopia');
+    document.body.classList.remove('protanopia', 'tritanopia', 'primary');
+    selectedModes.add('deuteranopia');
+    selectedModes.delete('protanopia');
+    selectedModes.delete('tritanopia');
+    selectedModes.delete('primary');
+}
+
+// Écouter le clic
+deuteranopiaButton.addEventListener("click", activateDeuteranopia);
+
+// Écouter la touche "Enter"
+deuteranopiaButton.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        activateDeuteranopia();
+    }
+});
+
+
+// Sélectionner le mode Tritanopie
+function activateTritanopia() {
+    document.body.classList.add('tritanopia');
+    document.body.classList.remove('protanopia', 'deuteranopia', 'primary');
+    selectedModes.add('tritanopia');
+    selectedModes.delete('protanopia');
+    selectedModes.delete('deuteranopia');
+    selectedModes.delete('primary');
+}
+
+// Écouter le clic
+tritanopiaButton.addEventListener("click", activateTritanopia);
+
+// Écouter la touche "Enter"
+tritanopiaButton.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        activateTritanopia();
+    }
+});
+
 
     // Sélectionner le mode Couleur primaire
     primaryButton.addEventListener("click", function () {
@@ -193,3 +252,25 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedModes.delete('tritanopia');
     });
 });
+
+
+//fonction click sur le bouton
+function clickButton() {
+    
+    // Bouton pour ouvrir/fermer le menu
+    button.addEventListener("click", function () {
+        dropdownLinks.forEach(link => {
+            const isSelected = selectedModes.has(link.id); // Vérifier si l'élément est sélectionné
+            if (isSelected) {
+                link.classList.add("clicked");
+                link.querySelector("span").classList.add("clicked");
+            } else {
+                link.classList.remove("clicked");
+                link.querySelector("span").classList.remove("clicked");
+            }
+        });
+        arrow.classList.toggle("open");
+        dropdown.classList.toggle("open");
+    });
+}
+

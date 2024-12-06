@@ -1,4 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+:root {
+    --primary-color: #3462C5;    /* Bleu principal (normal) */
+    --primary-p: #4848c5;        /* Bleu pour Protanopie */
+    --primary-d: #4580c5;        /* Bleu pour Deuteranopie */
+    --primary-t: #34679a;         /* Bleu pour Tritanopie */
+  }
+  
+  .blue {
+    color: var(--primary-color);
+    background-color: var(--primary-color);
+  }
+
+  .blueText {
+    color: var(--primary-color);
+    }
 
 * {
   font-family: 'Quicksand', sans-serif;
@@ -20,4 +38,9 @@ ul {
 
   li {
     list-style-type: none;
+  }
+
+  path{
+    fill: var(--primary-color) !important;
+
   }
